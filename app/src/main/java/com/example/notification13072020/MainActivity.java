@@ -5,6 +5,7 @@ import androidx.core.app.NotificationCompat;
 
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.graphics.BitmapFactory;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
@@ -33,6 +34,14 @@ public class MainActivity extends AppCompatActivity {
                                 .setContentText("Ứng dụng có bản cập nhật mới")
                                 .setSmallIcon(R.mipmap.ic_launcher)
                                 .setShowWhen(true)
+                                .setStyle(
+                                        new NotificationCompat
+                                                .BigPictureStyle()
+                                                .bigPicture(
+                                                        BitmapFactory.decodeResource(
+                                                                getResources(),
+                                                                R.mipmap.ic_launcher
+                                                        )))
                                 .setPriority(NotificationCompat.PRIORITY_HIGH);
                 NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
